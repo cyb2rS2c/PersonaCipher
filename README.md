@@ -18,9 +18,8 @@ pip3 install face_recognition opencv-python numpy
 ## Usage
 clone the repository:
 
-For Windows:
-
-    curl https://github.com/cyb2rS2c/Face-Recognition-Application.git
+For Windows (download the zip file):
+    
     cd Face-Recognition-Application
 For Linux:
     
