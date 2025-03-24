@@ -15,12 +15,18 @@ Ensure you have the following dependencies installed:
 pip3 install face_recognition opencv-python numpy
 ```
 
+Run the Script in powershell as Administrator or root based on the your OS:
+
+
 ## Usage
 clone the repository:
 
-For Windows (download the zip file):
+For Windows using powershell (download the zip file):
     
-    cd Face-Recognition-Application
+    curl -o Face-Recognition-Application.zip  https://github.com/cyb2rS2c/Face-Recognition-Application/archive/refs/heads/main.zip
+    Expand-Archive -Force  .\Face-Recognition-Application.zip
+    cd Face-Recognition-Application/Face-Recognition-Application-main
+    
 For Linux:
     
     git clone https://github.com/cyb2rS2c/Face-Recognition-Application.git
