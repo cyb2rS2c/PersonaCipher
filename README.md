@@ -1,4 +1,4 @@
-# Face Recognition Application
+# PersonaCipher
 
 > **Your face recognizer in images and videos.**
 
@@ -31,16 +31,16 @@ pip3 install face_recognition opencv-python numpy dlib requests bs4 pyfiglet col
 
 For Windows using powershell (download the zip file ):
     
-    curl -o Face-Recognition-Application.zip  https://github.com/cyb2rS2c/Face-Recognition-Application/archive/refs/heads/main.zip
-    Expand-Archive -Force  .\Face-Recognition-Application.zip
-    cd Face-Recognition-Application/Face-Recognition-Application-main
+    curl -o PersonaCipher.zip  https://github.com/cyb2rS2c/PersonaCipher/archive/refs/heads/main.zip
+    Expand-Archive -Force  .\PersonaCipher.zip
+    cd PersonaCipher/PersonaCipher-main
 
 Note: you need to install the same tools on windows in order to work.
 
 For Linux:
     
-    git clone https://github.com/cyb2rS2c/Face-Recognition-Application.git
-    cd Face-Recognition-Application
+    git clone https://github.com/cyb2rS2c/PersonaCipher.git
+    cd PersonaCipher
     
 ### 1. Prepare the Dataset
 Place images of known people inside a dataset directory (default: `dataset2`). Each person's images should be inside a folder named after them. Example structure:
@@ -64,7 +64,7 @@ python3 create_dataset.py
 Execute the script using:
 
 ```bash
-python3 face_recognition_app.py
+python3 persona_cipher.py
 ```
 
 ### 3. Select an Option from the Menu
