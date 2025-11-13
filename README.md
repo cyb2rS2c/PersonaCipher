@@ -5,7 +5,7 @@
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue?logo=python)
 ![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux-green?logo=linux)
 ![License](https://img.shields.io/badge/License-MIT-yellow)
-![Version](https://img.shields.io/badge/Version-2.0-orange)
+![Version](https://img.shields.io/badge/Version-3.0-orange)
 
 ---
 
@@ -27,7 +27,7 @@ pip3 install face_recognition opencv-python numpy dlib requests bs4 pyfiglet col
 ```
 
 ## Usage
-### clone the repository:
+### Clone the repository:
 
 For Windows using powershell (download the zip file ):
     
@@ -95,7 +95,10 @@ python3 create_dataset.py
 ```
 
 ## Screenshots
-<img width="524" height="425" alt="face" src="https://github.com/user-attachments/assets/8f960859-0172-4317-9f4c-bc7764e140b9" />
+<img width="576" height="560" alt="face" src="https://github.com/user-attachments/assets/171ea466-b5e4-48ec-ba38-fe0e37133e4b" />
+<img width="1038" height="355" alt="Screenshot_2025-11-13_15-00-02" src="https://github.com/user-attachments/assets/51961531-abe0-4265-b3a3-7648fbc99704" />
+
+
 
 ## Notes
 - The face recognition model uses the HOG-based feature extraction method.
