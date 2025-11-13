@@ -2,10 +2,21 @@ import face_recognition
 import cv2
 import numpy as np
 import os
+import pyfiglet
+from colorama import Fore, init
+
+init(autoreset=True)
+
 
 # Global lists for known face encodings and names
 known_face_encodings = []
 known_face_names = []
+
+
+def create_ascii_art_with_author(project_name, author_name):
+    project_ascii = pyfiglet.figlet_format(project_name, font="slant")  # Customize the font as needed
+    print(project_ascii)
+    print(Fore.RED + f"Author: {author_name}")
 
 # Load known faces from the dataset
 def load_known_faces(dataset_dir='dataset2'):
@@ -54,7 +65,6 @@ def recognize_faces_in_image(image_path):
     cv2.waitKey(0)  # Wait for a key press to close the window
     cv2.destroyAllWindows()
 
-# Recognize faces in a given video
 # Recognize faces in a given video
 def recognize_faces_in_video(mp4_path):
     # Open the video file
@@ -132,7 +142,10 @@ def recognize_faces_in_video(mp4_path):
 
 # Main menu to run the application
 def main_menu():
-    load_known_faces()  # Load the known faces before entering the menu
+    project_name = "Face Recognition Application"
+    author_name = "cyb2rS2c"
+    create_ascii_art_with_author(project_name, author_name)
+    load_known_faces()
     while True:
         print("\nFace Recognition Menu")
         print("1. Recognize faces in an image")
