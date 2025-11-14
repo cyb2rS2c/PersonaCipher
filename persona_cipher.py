@@ -27,7 +27,7 @@ def create_ascii_art_with_author(project_name, author_name,author_description):
     print(Fore.RED + f"Author: {author_name}")
 
 # Load known faces from the dataset
-def load_known_faces(dataset_dir='dataset2'):
+def load_known_faces(dataset_dir='known_faces'):
     for person_name in os.listdir(dataset_dir):
         person_dir = os.path.join(dataset_dir, person_name)
         if not os.path.isdir(person_dir):
@@ -75,80 +75,55 @@ def recognize_faces_in_image(image_path):
 
 # Recognize faces in a given video
 def recognize_faces_in_video(mp4_path):
-    # Open the video file
     video_capture = cv2.VideoCapture(mp4_path)
 
-    # Check if video was opened successfully
     if not video_capture.isOpened():
         print(f"Error opening video file {mp4_path}")
         return
 
-    found_match = False  # Flag to check if any known faces were found
+    found_match = False
 
     while True:
         ret, frame = video_capture.read()
         if not ret or frame is None:
-            print("No frame detected or end of video.")
-            break  # Exit the loop if no frame is captured or video ends
-
-        # Convert the image from BGR (OpenCV format) to RGB (face_recognition format)
+            print("End of video or no frame.")
+            break
         rgb_frame = frame[:, :, ::-1]
+        small_frame = cv2.resize(rgb_frame, (0, 0), fx=0.5, fy=0.5)
+        face_locations_small = face_recognition.face_locations(small_frame, model="hog")
+        face_encodings = face_recognition.face_encodings(small_frame, face_locations_small)
+        scaled_locations = []
+        for (top, right, bottom, left) in face_locations_small:
+            top *= 2
+            right *= 2
+            bottom *= 2
+            left *= 2
+            scaled_locations.append((top, right, bottom, left))
+        for (top, right, bottom, left), face_encoding in zip(scaled_locations, face_encodings):
 
-        # Detect face locations
-        face_locations = face_recognition.face_locations(rgb_frame)
-        print(f"Detected {len(face_locations)} faces in the current frame.")
+            matches = face_recognition.compare_faces(known_face_encodings, face_encoding)
+            face_distances = face_recognition.face_distance(known_face_encodings, face_encoding)
 
-        if face_locations:
-            try:
-                # Encode the detected faces
-                face_encodings = face_recognition.face_encodings(rgb_frame, face_locations)
+            name = "Unknown"
 
-                # Ensure that we have encodings for all detected faces
-                if len(face_encodings) == len(face_locations):
-                    for (top, right, bottom, left), face_encoding in zip(face_locations, face_encodings):
-                        # Check if the face matches a known encoding
-                        matches = face_recognition.compare_faces(known_face_encodings, face_encoding)
-                        name = "Unknown"
-
-                        # Find the best match index
-                        face_distances = face_recognition.face_distance(known_face_encodings, face_encoding)
-                        best_match_index = np.argmin(face_distances)
-
-                        if matches[best_match_index]:
-                            name = known_face_names[best_match_index]
-                            found_match = True  # Set flag if a known face is found
-
-                        # Draw a box around the face
-                        cv2.rectangle(frame, (left, top), (right, bottom), (0, 255, 0), 2)
-
-                        # Label the face with the name
-                        cv2.putText(frame, name, (left + 6, bottom + 25), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 1)
-                else:
-                    print("Mismatch between face locations and encodings detected.")
-            except Exception as e:
-                print(f"Error in face encoding: {e}")
-
-        else:
-            print("No faces detected in this frame.")
-
-        # Display the video frame
+            if len(face_distances) > 0:
+                best_match_index = np.argmin(face_distances)
+                if matches[best_match_index]:
+                    name = known_face_names[best_match_index]
+                    found_match = True
+            cv2.rectangle(frame, (left, top), (right, bottom), (0, 255, 0), 2)
+            cv2.putText(frame, name, (left, top - 10),
+                        cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 255, 0), 2)
         cv2.imshow('Video', frame)
-
-        # Break from the loop when 'q' is pressed
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
-
-    # After processing the video, check if any known faces were found
     if found_match:
-        print("Known faces were detected in the video.")
+        print("Known faces detected.")
     else:
-        print("No known faces were detected in the video.")
+        print("No known faces detected.")
 
-    # Release the video capture object and close all windows
     video_capture.release()
     cv2.destroyAllWindows()
-
-# Main menu to run the application
 def main_menu():
     project_name = "PersonaCipher"
     author_name = "cyb2rS2c"
