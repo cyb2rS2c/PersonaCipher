@@ -1,0 +1,12 @@
+face_recognition
+opencv-python
+numpy
+dlib
+requests
+beautifulsoup4
+pyfiglet
+colorama
+yt_dlp
+pip
+setuptools
+wheel
