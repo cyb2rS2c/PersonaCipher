@@ -35,7 +35,11 @@
 ```bash
 python3 -m venv myvenv
 source myvenv/bin/activate
-pip3 install face_recognition opencv-python numpy dlib requests bs4 pyfiglet colorama yt_dlp;python3 -m pip install --upgrade pip setuptools wheel
+pip3 install -r requirements.txt
+```
+Note: if you counter any issue with `pip`, execute this command manually:
+```bash
+python3 -m pip install --upgrade pip setuptools wheel
 ```
 ### Clone the repository:
 
@@ -67,9 +71,8 @@ known_faces/
 
 But you do not need to create it manually.
 ### Auto-Generate Dataset
-1. Edit the names in:
-`usernames.txt`
-2.Run:
+1. Edit the names in `usernames.txt`
+2. Run:
 ```bash
 python3 create_dataset.py
 ```
