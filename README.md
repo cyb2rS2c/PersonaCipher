@@ -8,7 +8,6 @@
 ![Version](https://img.shields.io/badge/Version-4.0-orange)
 
 ---
-
 ## 🧠 Overview
 
 **PersonaCipher** is a Python-based face recognition project using the `face_recognition` and `OpenCV` libraries. The application allows users to recognize faces in images and videos using a preloaded dataset of known faces.
@@ -31,6 +30,76 @@
 
 ✔️ **Windows & Linux compatible**
 
+Note:  If you are using linux then go read the [TODO](TODO.md) to set everything automatically.
+## Project tree:
+```
+├── assets
+│   ├── images
+│   │   └── image.png
+│   ├── known_faces
+│   │   ├── Elon_Musk
+│   │   │   ├── img10.jpg
+│   │   │   ├── img1.jpg
+│   │   │   ├── img2.jpg
+│   │   │   ├── img3.jpg
+│   │   │   ├── img4.jpg
+│   │   │   ├── img5.jpg
+│   │   │   ├── img6.jpg
+│   │   │   ├── img7.jpg
+│   │   │   ├── img8.jpg
+│   │   │   └── img9.jpg
+│   │   ├── John_Doe
+│   │   │   ├── img10.jpg
+│   │   │   ├── img1.jpg
+│   │   │   ├── img2.jpg
+│   │   │   ├── img3.jpg
+│   │   │   ├── img4.jpg
+│   │   │   ├── img5.jpg
+│   │   │   ├── img6.jpg
+│   │   │   ├── img7.jpg
+│   │   │   ├── img8.jpg
+│   │   │   └── img9.jpg
+│   │   ├── Messi
+│   │   │   ├── img10.jpg
+│   │   │   ├── img1.jpg
+│   │   │   ├── img2.jpg
+│   │   │   ├── img3.jpg
+│   │   │   ├── img4.jpg
+│   │   │   ├── img5.jpg
+│   │   │   ├── img6.jpg
+│   │   │   ├── img7.jpg
+│   │   │   ├── img8.jpg
+│   │   │   └── img9.jpg
+│   │   └── Ronaldo
+│   │       ├── img10.jpg
+│   │       ├── img1.jpg
+│   │       ├── img2.jpg
+│   │       ├── img3.jpg
+│   │       ├── img4.jpg
+│   │       ├── img5.jpg
+│   │       ├── img6.jpg
+│   │       ├── img7.jpg
+│   │       ├── img8.jpg
+│   │       └── img9.jpg
+│   └── videos
+│       └── video.mp4
+├── datasets
+│   └── usernames.txt
+├── face_recognition
+│   ├── api.py
+│   ├── face_detection_cli.py
+│   ├── face_recognition_cli.py
+│   └── __init__.py
+├── LICENSE
+├── README.md
+├── requirements.txt
+├── setup.sh
+└── src
+    ├── create_dataset.py
+    ├── mp4_downloader.py
+    └── persona_cipher.py
+
+```
 ## Requirements
 ```bash
 python3 -m venv myvenv
@@ -60,13 +129,14 @@ For Linux:
 Place images of known people inside a dataset directory (default: `known_faces`). Each person's images should be inside a folder named after them. Example structure:
 
 ```
-known_faces/
-  ├── John_Doe/
-  │   ├── img1.jpg
-  │   ├── img2.jpg
-  ├── Jane_Smith/
-  │   ├── img1.jpg
-  │   ├── img2.jpg
+ assets├── 
+    known_faces/
+      ├── John_Doe/
+      │   ├── img1.jpg
+      │   ├── img2.jpg
+      ├── Jane_Smith/
+      │   ├── img1.jpg
+      │   ├── img2.jpg
 ```
 
 But you do not need to create it manually.
@@ -110,17 +180,10 @@ Loads face encodings from the dataset directory and stores them for recognition.
 - Processes frames from a video file.
 - Detects and recognizes known faces in real-time.
 - Draws bounding boxes and labels recognized faces.
-  
-### Dataset Generator
-```bash
-python3 create_dataset.py
-```
 
 ## Screenshots
 <img width="576" height="560" alt="face" src="https://github.com/user-attachments/assets/171ea466-b5e4-48ec-ba38-fe0e37133e4b" />
 <img width="1038" height="355" alt="Screenshot_2025-11-13_15-00-02" src="https://github.com/user-attachments/assets/51961531-abe0-4265-b3a3-7648fbc99704" />
-
-
 
 ## Notes
 - Uses HOG-based face detection
