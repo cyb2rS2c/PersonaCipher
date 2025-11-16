@@ -87,6 +87,7 @@ Note:  If you are using linux then go read the [TODO](TODO.md) to set everything
     ├── create_dataset.py
     ├── mp4_downloader.py
     └── persona_cipher.py
+    └── fetch_info.py
 
 ```
 ## Requirements
@@ -173,6 +174,7 @@ Loads face encodings from the dataset directory and stores them for recognition.
 ## Screenshots
 <img width="576" height="560" alt="face" src="https://github.com/user-attachments/assets/171ea466-b5e4-48ec-ba38-fe0e37133e4b" />
 <img width="1038" height="355" alt="Screenshot_2025-11-13_15-00-02" src="https://github.com/user-attachments/assets/51961531-abe0-4265-b3a3-7648fbc99704" />
+<img width="557" height="364" alt="p" src="https://github.com/user-attachments/assets/27c5009d-0aef-49e3-a9b5-911a8623aaae" />
 
 ## Notes
 - Uses HOG-based face detection
