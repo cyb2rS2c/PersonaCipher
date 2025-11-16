@@ -4,6 +4,7 @@ import numpy as np
 import os
 import pyfiglet
 from colorama import Fore, init
+from fetch_info import main as fetcher
 import platform
 
 init(autoreset=True)
@@ -194,16 +195,18 @@ def main_menu():
     project_name = "PersonaCipher"
     author_name = "cyb2rS2c"
     author_description = "Your face recognizer in images & videos."
-    create_ascii_art_with_author(project_name, author_name,author_description)
+    create_ascii_art_with_author(project_name, author_name, author_description)
     load_known_faces()
+
     while True:
         print("\nFace Recognition Menu")
         print("1. Recognize faces in an image")
         print("2. Recognize faces in a video")
-        print("3. Exit")
-        
+        print("3. Get personal information summary about the detected person, country, etc (if available)")
+        print("4. Exit")
+
         choice = input("Select an option: ")
-        
+
         if choice == '1':
             image_path = input("Enter the path of the image: ")
             recognize_faces_in_image(image_path)
@@ -211,12 +214,15 @@ def main_menu():
             video_path = input("Enter the path of the video: ")
             recognize_faces_in_video(video_path)
         elif choice == '3':
+            clear_screen()
+            fetcher()
+        elif choice == '4':
             print("Exiting the program.")
             clear_screen()
             break
         else:
             print("Invalid choice. Please select again.")
-
-# Run the application
+            
 if __name__ == "__main__":
     main_menu()
+
