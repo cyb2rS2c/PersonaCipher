@@ -8,11 +8,11 @@
 ![Version](https://img.shields.io/badge/Version-5.0-orange)
 
 ---
-## 🧠 Overview
+## Overview
 
 **PersonaCipher** is a Python-based face recognition project using the `face_recognition` and `OpenCV` libraries. The application allows users to recognize faces in images and videos using a preloaded dataset of known faces.
 
-## ✨ Features
+## Features
 
 ✔️ **Recognize faces in images**
 
@@ -172,9 +172,9 @@ Loads face encodings from the dataset directory and stores them for recognition.
 - Draws bounding boxes and labels recognized faces.
 
 ## Screenshots
-<img width="1105" height="829" alt="p" src="https://github.com/user-attachments/assets/ad8de8bd-5fe6-4b1e-9329-18b62662e72d" />
-<img width="1038" height="355" alt="Screenshot_2025-11-13_15-00-02" src="https://github.com/user-attachments/assets/51961531-abe0-4265-b3a3-7648fbc99704" />
-<img width="557" height="364" alt="p" src="https://github.com/user-attachments/assets/27c5009d-0aef-49e3-a9b5-911a8623aaae" />
+<img width="600" height="829" alt="p" src="https://github.com/user-attachments/assets/ad8de8bd-5fe6-4b1e-9329-18b62662e72d" />
+<img width="600" height="355" alt="Screenshot_2025-11-13_15-00-02" src="https://github.com/user-attachments/assets/51961531-abe0-4265-b3a3-7648fbc99704" />
+<img width="600" height="364" alt="p" src="https://github.com/user-attachments/assets/27c5009d-0aef-49e3-a9b5-911a8623aaae" />
 
 ## Notes
 - Uses HOG-based face detection
@@ -183,7 +183,7 @@ Loads face encodings from the dataset directory and stores them for recognition.
 - Avoid noisy datasets for best recognition
 - Press q to exit video mode
 
-## 📜 License
+## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Disclaimer
